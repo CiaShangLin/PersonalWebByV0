@@ -91,9 +91,12 @@ export default function HomePage() {
         <div className="text-center space-y-6 py-12">
           <div className="relative">
             <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1">
-              <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-4xl">👨‍💻</div>
+              <img
+                src="/avatar.jpg"
+                alt="個人頭像"
+                className="w-full h-full object-cover rounded-full bg-white"
+              />
             </div>
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white"></div>
           </div>
           <div>
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -104,16 +107,6 @@ export default function HomePage() {
               擁有五年Android工作經歷，目前主要維護和開發影音類型APP，持續優化產品程式碼，提高留存率和降低閃退率。會把工作上遇到的問題和解決方法放在Github和Medium分享，與設計合作產出高品質UI/UX產品，遵循Clean
               Code和Design Pattern產出易維護的程式碼，使用Testing維護程式碼的品質，也有研究過Flutter對於跨平台有興趣。
             </p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="group">
-              <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
-              下載履歷
-            </Button>
-            <Button variant="outline" size="lg">
-              <Mail className="w-4 h-4 mr-2" />
-              聯絡我
-            </Button>
           </div>
         </div>
       </AnimatedSection>
@@ -128,25 +121,48 @@ export default function HomePage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-gray-500" />
-                <span>your.email@example.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-gray-500" />
-                <span>+886 912 345 678</span>
+                <span>west7418@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-gray-500" />
                 <span>Taichung City, Taiwan</span>
               </div>
             </div>
+            <div className="flex flex-wrap gap-4">
+              <a href="https://github.com/CiaShangLin" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="group bg-transparent flex items-center gap-2">
+                  <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span className="inline-block align-middle">GitHub</span>
+                </Button>
+              </a>
+              <a href="https://www.linkedin.com/in/%E5%B0%9A%E9%9C%96-%E8%94%A1-a05878175/" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="group bg-transparent flex items-center gap-2">
+                  <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span className="inline-block align-middle">LinkedIn</span>
+                </Button>
+              </a>
+              <a href="https://medium.com/@west7418" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="group bg-transparent flex items-center gap-2">
+                  <span className="w-4 h-4 flex items-center justify-center text-sm font-bold group-hover:scale-110 transition-transform">M</span>
+                  <span className="inline-block align-middle">Medium</span>
+                </Button>
+              </a>
+              <a href="https://www.cake.me/west7418-41970b" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="group bg-transparent flex items-center gap-2">
+                  <span className="w-4 h-4 flex items-center justify-center text-sm font-bold group-hover:scale-110 transition-transform">C</span>
+                  <span className="inline-block align-middle">CakeResume</span>
+                </Button>
+              </a>
+            </div>
           </CardContent>
         </Card>
       </AnimatedSection>
 
       {/* Skills */}
+      {/*
       <AnimatedSection animation="fade-up" delay={400}>
         <Card>
           <CardHeader>
@@ -178,6 +194,7 @@ export default function HomePage() {
           </CardContent>
         </Card>
       </AnimatedSection>
+      */}
 
       {/* Tech Stack */}
       <TechStackSection />
@@ -219,6 +236,7 @@ export default function HomePage() {
       </AnimatedSection>
 
       {/* Social Links */}
+      {/*
       <AnimatedSection animation="fade-up" delay={800}>
         <Card>
           <CardHeader>
@@ -226,22 +244,12 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-4">
-              <Button variant="outline" className="group bg-transparent">
-                <Github className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                GitHub
-              </Button>
-              <Button variant="outline" className="group bg-transparent">
-                <Linkedin className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
-                LinkedIn
-              </Button>
-              <Button variant="outline" className="group bg-transparent">
-                <span className="w-4 h-4 mr-2 text-sm group-hover:scale-110 transition-transform">M</span>
-                Medium
-              </Button>
+              ...
             </div>
           </CardContent>
         </Card>
       </AnimatedSection>
+      */}
     </div>
   )
 }

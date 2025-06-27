@@ -22,8 +22,12 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600" />
-            <span className="font-bold text-xl">Android Engineer</span>
+            <img
+              src="/android-logo.webp"
+              alt="Android Logo"
+              className="h-8 w-8 rounded-full object-cover"
+            />
+            <span className="font-bold text-xl">蔡尚霖的個人網頁</span>
           </Link>
 
           {/* Desktop Navigation */}
