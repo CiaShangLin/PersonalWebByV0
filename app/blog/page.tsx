@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { AnimatedSection } from "@/components/animated-section"
 import { LoadingSkeleton } from "@/components/loading-skeleton"
-import { Search, Calendar, Code, Monitor, Wrench, GitCommit, Clock } from "lucide-react"
+import { Search, Calendar, Code, Monitor, Wrench, GitCommit } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 interface DevLog {
@@ -22,6 +22,29 @@ interface DevLog {
 }
 
 const devLogs: DevLog[] = [
+  {
+    id: 2,
+    date: "2025-06-28",
+    version: "v1.0.1",
+    title: "介面優化與功能擴充",
+    changes: [
+      "新增社群連結按鈕並支援跳轉",
+      "聯絡資訊與社群資訊合併",
+      "優化主要成就區塊內容與分類",
+      "支援自訂網站 icon",
+      "其他介面優化與細節調整",
+    ],
+    type: "update",
+    timeSpent: "3小時",
+    details: `本次針對網站的易用性與資訊整合進行優化：
+- 社群連結按鈕可直接跳轉至各平台
+- 聯絡資訊與社群資訊合併，資訊更集中
+- 主要成就區塊內容更豐富，分類更明確
+- 網站 icon 支援自訂，提升品牌辨識度
+- 介面細節微調，整體體驗更佳
+
+未來會持續根據使用者回饋與自身需求進行優化！`,
+  },
   {
     id: 1,
     date: "2025-06-27",
@@ -139,10 +162,6 @@ export default function BlogPage() {
   }
 
   const totalChanges = devLogs.reduce((sum, log) => sum + log.changes.length, 0)
-  const totalTime = devLogs.reduce((sum, log) => {
-    const hours = Number.parseInt(log.timeSpent.replace("小時", ""))
-    return sum + hours
-  }, 0)
 
   return (
     <div className="container mx-auto px-4 py-8 space-y-8">
@@ -160,7 +179,7 @@ export default function BlogPage() {
 
       {/* Stats */}
       <AnimatedSection animation="fade-up" delay={200}>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <Card>
             <CardContent className="flex items-center justify-center p-6">
               <div className="text-center">
@@ -187,17 +206,6 @@ export default function BlogPage() {
             <CardContent className="flex items-center justify-center p-6">
               <div className="text-center">
                 <div className="flex items-center justify-center mb-2">
-                  <Clock className="w-8 h-8 text-purple-500" />
-                </div>
-                <div className="text-2xl font-bold">{totalTime}</div>
-                <div className="text-sm text-muted-foreground">小時開發</div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="flex items-center justify-center p-6">
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-2">
                   <Monitor className="w-8 h-8 text-orange-500" />
                 </div>
                 <div className="text-2xl font-bold">{devLogs[0]?.version || "v1.0.0"}</div>
@@ -209,6 +217,7 @@ export default function BlogPage() {
       </AnimatedSection>
 
       {/* Search and Filter */}
+      {/*
       <AnimatedSection animation="fade-up" delay={400}>
         <Card>
           <CardContent className="p-6">
@@ -238,6 +247,7 @@ export default function BlogPage() {
           </CardContent>
         </Card>
       </AnimatedSection>
+      */}
 
       {/* Development Logs */}
       <AnimatedSection animation="fade-up" delay={600}>
@@ -266,10 +276,6 @@ export default function BlogPage() {
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
                         {new Date(log.date).toLocaleDateString("zh-TW")}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        開發時間：{log.timeSpent}
                       </div>
                     </div>
                   </div>
@@ -341,7 +347,7 @@ export default function BlogPage() {
           <CardContent className="text-center py-8">
             <h3 className="text-xl font-semibold mb-2">持續改進中</h3>
             <p className="text-muted-foreground mb-4">這個網站會持續更新和優化，每一次改動都會在這裡記錄</p>
-            <div className="text-sm text-muted-foreground">開始開發：2025年6月27日 | 累計開發時間：{totalTime}小時</div>
+            <div className="text-sm text-muted-foreground">開始開發：2025年6月27日</div>
           </CardContent>
         </Card>
       </AnimatedSection>
